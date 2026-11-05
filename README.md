@@ -32,3 +32,7 @@ This will compile the sources, link them into a 512-byte bootable image, and lau
 * [ ] Memory management (Paging)
 * [ ] Simple filesystem
 * [ ] Custom shell
+
+## 👤 Author
+**Nikolay Klimov**
+* Telegram : (https://t.me/keyos_devlog)
