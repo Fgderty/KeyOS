@@ -1,38 +1,21 @@
 # KeyOS
 
-KeyOS is a custom, from-scratch x86 operating system. The goal of this project is to deeply understand low-level computer architecture, memory management, and system programming without relying on existing frameworks.
+KeyOS — это пет-проект по разработке операционной системы с нуля. Цель — глубокое понимание архитектуры x86, управления памятью и системных вызовов без использования готовых фреймворков.
 
-## 🚀 Current Status
-The project is currently in the early boot stage.
-* [x] 16-bit Real Mode bootloader
-* [x] Transition to 32-bit Protected Mode (GDT, A20 line)
-* [x] Basic VGA text mode driver (screen clearing, string printing)
-* [x] Modular architecture (separated `boot.asm` and `kernel.asm`)
+## 🚀 Текущий статус
+- [x] 16-битный загрузчик (MBR) с переходом в 32-битный Protected Mode
+- [x] Настройка Global Descriptor Table (GDT) и линии A20
+- [x] Драйвер VGA-текстового режима на Freestanding C (вывод в `0xB8000`)
+- [x] Модульная система сборки (ASM + C)
+- [ ] Interrupt Descriptor Table (IDT) — *в разработке*
 
-## 🛠️ Tech Stack & Tools
-* **Language:** x86 Assembly (NASM)
-* **Linker:** GNU `ld`
-* **Emulator:** QEMU
-* **Build System:** Bash (`build.sh`)
+## 🛠️ Технологии
+* **Языки:** C (Freestanding), x86 Assembly (NASM)
+* **Инструменты:** GCC, GNU ld, QEMU, GDB, Bash
 
-## ⚙️ How to Build and Run
-1. Ensure you have `nasm`, `ld`, and `qemu-system-x86_64` installed.
-2. Clone the repository.
-3. Make the build script executable:
-   `chmod +x build.sh`
-4. Run the script:
-   `./build.sh`
-
-This will compile the sources, link them into a 512-byte bootable image, and launch QEMU.
-
-## 🗺️ Roadmap
-* [ ] Transition kernel development to C (Freestanding)
-* [ ] Implement Interrupt Descriptor Table (IDT)
-* [ ] Keyboard driver
-* [ ] Memory management (Paging)
-* [ ] Simple filesystem
-* [ ] Custom shell
-
-## 👤 Author
-**Nikolay Klimov**
-* Telegram : (https://t.me/keyos_devlog)
+## ⚙️ Как собрать и запустить
+1. Убедитесь, что установлены: `nasm`, `gcc`, `ld`, `qemu-system-x86_64`.
+2. Клонируйте репозиторий.
+3. Сделайте скрипт сборки исполняемым:
+   ```bash
+   chmod +x build.sh
