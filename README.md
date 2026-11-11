@@ -1,21 +1,21 @@
 # KeyOS
 
-KeyOS — это пет-проект по разработке операционной системы с нуля. Цель — глубокое понимание архитектуры x86, управления памятью и системных вызовов без использования готовых фреймворков.
+A custom x86 operating system built from scratch. The goal of this project is to gain a deep understanding of low-level computer architecture, memory management, and system programming without relying on existing frameworks.
 
-## 🚀 Текущий статус
-- [x] 16-битный загрузчик (MBR) с переходом в 32-битный Protected Mode
-- [x] Настройка Global Descriptor Table (GDT) и линии A20
-- [x] Драйвер VGA-текстового режима на Freestanding C (вывод в `0xB8000`)
-- [x] Модульная система сборки (ASM + C)
-- [ ] Interrupt Descriptor Table (IDT) — *в разработке*
+## 🚀 Current Status
+* [x] 16-bit Real Mode bootloader (MBR)
+* [x] Transition to 32-bit Protected Mode (GDT, A20 line)
+* [x] VGA text mode driver in Freestanding C (direct memory access at `0xB8000`)
+* [x] Modular build system (ASM + C)
+* [ ] Interrupt Descriptor Table (IDT) — *in progress*
 
-## 🛠️ Технологии
-* **Языки:** C (Freestanding), x86 Assembly (NASM)
-* **Инструменты:** GCC, GNU ld, QEMU, GDB, Bash
+## 🛠️ Tech Stack
+* **Languages:** C (Freestanding), x86 Assembly (NASM)
+* **Tools:** GCC, GNU ld, QEMU, GDB, Bash
 
-## ⚙️ Как собрать и запустить
-1. Убедитесь, что установлены: `nasm`, `gcc`, `ld`, `qemu-system-x86_64`.
-2. Клонируйте репозиторий.
-3. Сделайте скрипт сборки исполняемым:
+## ⚙️ How to Build and Run
+1. Ensure you have `nasm`, `gcc`, `ld`, and `qemu-system-x86_64` installed.
+2. Clone the repository.
+3. Make the build script executable:
    ```bash
    chmod +x build.sh
