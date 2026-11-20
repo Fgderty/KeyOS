@@ -7,7 +7,7 @@ A custom x86 operating system built from scratch. The goal of this project is to
 * [x] Transition to 32-bit Protected Mode (GDT, A20 line)
 * [x] VGA text mode driver in Freestanding C (direct memory access at `0xB8000`)
 * [x] Modular build system (ASM + C)
-* [ ] Interrupt Descriptor Table (IDT) — *in progress*
+* [x] Interrupt Descriptor Table (IDT) — *in progress*
 
 ## 🛠️ Tech Stack
 * **Languages:** C (Freestanding), x86 Assembly (NASM)
