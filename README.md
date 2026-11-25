@@ -19,3 +19,4 @@ A custom x86 operating system built from scratch. The goal of this project is to
 3. Make the build script executable:
    ```bash
    chmod +x build.sh
+   ./build.sh
