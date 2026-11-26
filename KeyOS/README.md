@@ -26,9 +26,9 @@ The project is currently in the early boot stage.
 This will compile the sources, link them into a 512-byte bootable image, and launch QEMU.
 
 ## 🗺️ Roadmap
-* [ ] Transition kernel development to C (Freestanding)
-* [ ] Implement Interrupt Descriptor Table (IDT)
-* [ ] Keyboard driver
+* [x] Transition kernel development to C (Freestanding)
+* [x] Implement Interrupt Descriptor Table (IDT)
+* [x] Keyboard driver
 * [ ] Memory management (Paging)
 * [ ] Simple filesystem
 * [ ] Custom shell
