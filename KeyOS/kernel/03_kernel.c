@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include "idt.h"
+#include "../drivers/keyboard.h"
 
 #define VGA_MEMORY 0xB8000
 #define SCREEN_COLS 80
@@ -36,11 +37,12 @@ void vga_print_at(const char *str, uint8_t row, uint8_t col, uint8_t attr) {
 
 void kernel_main(void) {
     idt_init();
+    keyboard_init();
 
     uint8_t default_attr = VGA_COLOR(COLOR_BLACK, COLOR_LIGHT_GRAY);
     uint8_t crimson_attr = VGA_COLOR(COLOR_BLACK, COLOR_LIGHT_RED);
-    uint8_t cyan_attr = VGA_COLOR(COLOR_BLACK, COLOR_LIGHT_CYAN);
-    uint8_t pink_attr = VGA_COLOR(COLOR_BLACK, COLOR_DARK_RED);
+    uint8_t cyan_attr =    VGA_COLOR(COLOR_BLACK, COLOR_LIGHT_CYAN);
+    uint8_t pink_attr =    VGA_COLOR(COLOR_BLACK, COLOR_DARK_RED);
 
     vga_clear(default_attr);
 
@@ -53,7 +55,7 @@ void kernel_main(void) {
     vga_print_at("[ STATUS ]", 3, 2, crimson_attr);
     vga_print_at("System Ready. Zero-Dependency Architecture", 3, 13, default_attr);
 
-	__asm__ volatile ("int $0x03");
+	//__asm__ volatile ("int $0x03");
 
-    while (1) {}
+    while (1) { asm volatile ("hlt");}
 }

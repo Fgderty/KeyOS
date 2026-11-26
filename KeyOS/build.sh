@@ -30,7 +30,7 @@ for c_file in $(find . -name "*.c" -not -path "./build/*"); do
     obj_file="${obj_file%.c}.o"
     mkdir -p "$(dirname "$obj_file")"
     echo " -> $c_file"
-    gcc -m32 -ffreestanding -fno-pie -fno-pic -fno-stack-protector -mno-sse -mno-sse2 -mpreferred-stack-boundary=2 -c "$c_file" -o "$obj_file"
+    gcc -m32 -ffreestanding -fno-pie -fno-pic -fno-stack-protector -mno-sse -mno-sse2 -mpreferred-stack-boundary=2 -Ikernel -Idrivers -c "$c_file" -o "$obj_file"
 done
 
 #==============================================
@@ -64,7 +64,9 @@ echo " -> Linking kernel (0x1000)..."
 
 KERNEL_OBJS=$(find build/kernel -name "*.o" | sort)
 
-ld -m elf_i386 -T linker.ld --oformat binary -o build/kernel.bin $KERNEL_OBJS
+DRIVERS_OBJS=$(find build/drivers -name "*.o" | sort)
+
+ld -m elf_i386 -T linker.ld --oformat binary -o build/kernel.bin $KERNEL_OBJS $DRIVERS_OBJS
 
 echo "[OK] Kernel linked. Size: $(stat -c%s build/kernel.bin) bytes."
 
